@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	.container-fluid
+		.row
+			.col-2.align-items-center.mt-5
+				p
+					a(href="/user") Profile
+				p
+					a(href="/user/all") All members
+				hr
+				p
+					a(href="/post/manage") Manage posts
+
+			.col
+				.row.justify-content-center.row-cols-md-3.row-cols-lg-4.g-4.py-4
+					each user in users
+						.col
+							card
+								img.card-img-top(src="" alt="...")
+								.card-body.text-center
+									h5.card-title= user.fullname
+									p.card-text.text-muted= user.username
+									a.btn.btn-success(href="mailto:"+user.email) Send a mail
+				

@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	.container-fluid
+		.row
+			.col-2.align-items-center.mt-5
+				p
+					a(href="/user/dashboard") Profile
+				if user.membership == 'author'
+					p
+						a(href="/user/all") All members
+				hr
+				p
+					a(href="/post/manage") Manage posts
+
+			.col.p-4
+				form.container.mx-6.p-4.border.border-success.rounded-4(method="post")
+					.form-group.my-2
+						label.form-label Fullname
+						input.form-control(type="text" name="fullname" required value=((user === undefined) ? '' : user.fullname))
+
+					.form-group.my-2
+						label.form-label Email
+						input.form-control(type="email" name="email" required value=((user === undefined) ? '' : user.email))
+
+					.form-group.my-2
+						label.form-label Username
+						input.form-control(type="text" name="username" required value=((user === undefined) ? '' : user.username))
+					
+					.container.text-center
+						button.btn.btn-success.my-2.py-2 Update profile
+					hr
+					a.btn.btn-danger(href="/user/dashboard/password") Edit password
+
+						if errors
+							hr
+							ul
+								for error in errors
+									li= error.msg
+				

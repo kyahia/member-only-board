@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	if user
+		.full-height
+			.container
+				h1 WELCOME BACK #{user.username}
+				a(href="/log-out") LOG OUT
+
+
+	else
+		.container-fluid
+			.row
+				.col-md-6.bg-primary
+				.col-md-6
+					form.mx-6.p-4.border.border-success.rounded-4(action="/log-in" method="POST")
+
+						.fs-1.fw-bolder.py-3 Happening now
+						.fs-2.fw-bold.py-3 Join our community today
+
+						.form-group.my-2
+							label.form-label(for="username") Username
+							input.form-control(name="username" placeholder="username" type="text")
+						.form-group.my-2
+							label.form-label(for="password") Password
+							input.form-control(name="password" type="password")
+
+						.d-grid.gap-2
+							button.btn.btn-success.my-2.py-2(type="submit") Log In
+							hr
+							.fs-3.fw-bold.py-3 Don't have an account ?
+							a.btn.btn-outline-info.my-2.py-2(href="/user") Sign Up here

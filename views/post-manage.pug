@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	h1= title
+
+	.d-flex.justify-content-center.py-3
+		a.btn.btn-lg.btn-outline-success.mx-3(href="/post/create") Create a new Post
+	ul
+		each post in posts
+			dl
+				dt
+					a(href=post.url) #{post.title}
+				if isAuthor
+					dd
+						p
+							a(href=post.url+'/update') Update Post
+						p
+							a(href=post.url+'/delete') Delete Post
+						
+		else
+			li No posts

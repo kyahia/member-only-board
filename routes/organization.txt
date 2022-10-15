@@ -1,0 +1,10 @@
+nav
+   home
+   posts
+   dashboard
+
+dashboard
+   Profile -> edit profile
+   all members
+   ------------
+   manage posts

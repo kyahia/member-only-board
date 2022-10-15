@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.active{
+   color: #8bc34a!important;
+}
+
+.full-height{
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   text-align: center;
+}

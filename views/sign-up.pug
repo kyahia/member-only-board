@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	h1 Sign Up
+
+	form(method="post" action="/user")
+		.form-group
+			label Fullname
+			input.form-control(type="text" name="fullname" required)
+		.form-group
+			label Email
+			input.form-control(type="email" name="email" required)
+		.form-group
+			label Username
+			input.form-control(type="text" name="username" required)
+		.form-group
+			label Password
+			input.form-control(type="password" name="password" required)
+		.form-group
+			label Confirm password
+			input.form-control(type="password" name="confirm-password" required)
+		button.btn.btn-success Sign Up
+
+	a(href="/") Home
+	if errors
+		hr
+		ul
+			for error in errors
+				li= error.msg

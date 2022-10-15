@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	h1.py-5=title
+	
+	form.container.mx-6.p-4.border.border-success.rounded-4(method="post")
+		.form-group.my-2
+			label.form-label Title
+			input.form-control(type="text" name="title" required value=((post === undefined) ? '' : post.title))
+
+		.form-group.my-2
+			label.form-label Content
+			textarea.form-control(name='content' required placeholder="Innovate")= ((post === undefined) ? '' : post.content) 
+		.text-center.mt-4
+			button.btn.btn-lg.btn-success.px-4 Publish
+
+	if errors
+		hr
+		ul
+			for error in errors
+				li= error.msg
+	
+	.container-fluid.my-4.fs-5
+		a(href="/post") Return to all posts
